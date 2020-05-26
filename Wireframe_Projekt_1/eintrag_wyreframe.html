@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./assets/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.youtube.com/watch?v=DHy0DKX2iFs">Prokrastination</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" id="theme-button">geht das auch schöner?</button>
+
+    </header>
+
+    <main>
+      <h1>ToDo App</h1>
+
+      <form id="form" action="./index.html" action="POST">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" />
+
+        <label for="description">Beschreibung</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="importance">Wichtigkeit</label>
+        <select name="importance" id="importance">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="duedate">Zu erledigen bis</label>
+        <input id="duedate" type="date" name="duedate" />
+
+        <button type="submit">Speichern</button>
+        <!-- Wie macht man einen Abbrechen-Button, der auf die Übersichtsliste zurückführt?
+        <button type="submit">Abbrechen</button> 
+        !-->
+      </form>
+    </main>
+
+
+    <footer>
+      <p>&copy; Copyright</p>
+    </footer>
+
+    <script src="./assets/main.js" defer></script>
+  </body>
+</html>

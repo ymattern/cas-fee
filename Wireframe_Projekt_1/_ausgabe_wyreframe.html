@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizen</title>
+    <link rel="stylesheet" href="wyreframe.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Meine Notizen
+        </h1>
+        <button type="button" id="btn-neue-notiz">Neue Notiz erstellen</button>
+        <select id="theme-switcher">
+            <option value="lightmode">schön</option>
+            <option value="darkmode" selected>voll schön</option>
+        </select>
+
+    </header>
+    <!-- Sortierung nach Kategorien-->
+    <nav class="sortierung">
+        <button type="button" id="faellig-am" name="sortierung" value="faellig-am">
+        <label for="faellig-am">Fällig am</label>
+        <button type="button" id="erstellt-am" name="sortierung" value="erstellt-am">
+        <label for="erstellt-am">Erstelldatum</label>
+        <button type="button" id="wichtigkeit" name="sortierung" value="wichtigkeit">
+        <label for="wichtigkeit">Wichtigkeit</label>
+        <button type="button" id="show-finished" name="filter" value="show-finished">
+        <label for="show-finished">Erledigte anzeigen</label>
+    </nav>
+
+    <main>
+       <section>
+           <div class="faellig-am">(hol #erledigt-datum von Notiz1) </div>
+           <div class="ausgabe-titel">(hol Inhalt von Titel von Notiz1) </div>           
+           <div class="wichtigkeit"> (hol value="wichtigkeit" von #wichtigkeit von Notiz1) </div>           
+           <div class="edit-button">Edit</div>
+           <div class="show-finished"> (zeige "checkbox" checked, wenn erledigt=true)</div>
+           <div class="ausgabe-description">(hol Inhalt von Notiz1) </div>           
+
+       </section>
+
+
+    </main>
+
+    <footer>
+        c 2020 Y.R.U. Mattern
+    </footer>
+</body>
+</html>
