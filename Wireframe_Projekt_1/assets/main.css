@@ -1,0 +1,99 @@
+:root {
+  --background: white;
+  --color: #222;
+}
+
+.dark-theme {
+  --background: #222;
+  --color: white;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: rgb(15, 15, 15);
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: auto auto auto;
+  grid-gap: 4px;
+  grid-template-areas:
+    "header header"
+    "main sidebar"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+
+footer {
+  grid-area: footer;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  grid-gap: 4px;
+}
+
+label {
+  grid-column: 1 / span 1;
+}
+
+input,
+textarea,
+select {
+  grid-column: 2 / span 1;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 150px;
+}
+
+button {
+  grid-column: 2 / span 1;
+}
+
+h1 {
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+}
+
+h1:first-letter {
+  font-size: 30px;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: blue;
+}
+
+.nav-link:hover {
+  color: teal;
+}
+
+.nav-link:before {
+  content: "> ";
+}
+
+.avatar {
+  max-width: 50vw;
+}
