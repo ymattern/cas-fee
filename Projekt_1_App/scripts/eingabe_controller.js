@@ -8,10 +8,10 @@ function styleAuslesen() {
     document.body.classList.remove('dark-mode');
   }
 }
-// end of STYLE SELECTOR================================================
+// end of STYLE SELECTOR ==============================================
 
 
-// Formulardaten Inhalte in Speicher schreiben========================
+// Formulardaten Inhalte in Speicher schreiben ========================
 const formSend = document
   .querySelector('#btn-submit')
   .addEventListener('click', event => {
@@ -19,7 +19,22 @@ const formSend = document
     AddNewNote();
   })
 
+// Eingabe abbrechen ===================================================
+const btnCancel = document
+  .getElementById('#btn-cancel')
+  .addEventListener('click', event => {
+    event.preventDefault();
+    // alle Felder leeren
+    resetForm();
+  }
+  )
 
+  // Alle Formularfelder leeren ========================================
+  function resetForm() {
+    document.getElementsByTagName("form").reset();
+  }
+
+  // Seitenwechsel von Eingabeformular auf Notizenliste ================
 
 
 // Initialisierung =====================================================
