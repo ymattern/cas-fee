@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo App: Adding a new note</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/model.js"></script>
+  </head>
+  <body>
+
+
+    <main>
+      <h1>New Note</h1>
+
+      <form id="form" action="./index.html" action="POST">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" />
+
+        <br />
+        <label for="description">Details</label>
+        <textarea id="description" name="description"></textarea>
+
+        <br />
+
+        <label for="importance">Importance</label>
+        <select name="importance" id="importance">
+          <option value="1">* (low)</option>
+          <option value="2">**</option>
+          <option value="3">***</option>
+          <option value="4">****</option>
+          <option value="5">***** (high)</option>
+        </select>
+
+        <br />
+
+        <label for="duedate">Do it until</label>
+        <input id="duedate" type="date" name="duedate" />
+
+        <input type="hidden" id="note-id">
+        <input type="hidden" id="completed"> <!-- erledigt-->
+
+        <p></p>
+        <!-- dieses Event - onclick="saveEntry() - in ein ein add.EventListener ins JS setzen-->
+        <br />
+        <button type="submit" id="btn-submit" value="AddNewNote">Save note</button>
+        <p></p>
+        <!--Abbrechen-Button, der auf die Übersichtsliste zurückführt-->
+        <button type="cancel" id="btn-cancel" value="cancel">Cancel</button>
+      </form>
+    </main>
+
+
+    <footer>
+      <p>&copy; ym</p>
+    </footer>
+
+    <script src="./scripts/eingabe_controller.js" defer></script>
+  </body>
+</html>

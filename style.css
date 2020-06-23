@@ -1,0 +1,122 @@
+
+.dark-mode {
+    background-color: darkslategray;
+    color: deeppink;
+}
+/*
+* {
+    border: 1px black solid;
+}
+*/
+body {
+    background-color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header h1 {
+    display: none;
+}
+
+
+/*Styles nur für Eingabeformular eintrag_wyreframe.html*/
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    flex: 0 25%;
+}
+
+input, 
+textarea,
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    flex: 0 80%;
+    margin-bottom: 20px;
+    height: 2rem;
+    
+}
+
+textarea {
+    height: 100px;
+    width: 75%;
+}
+
+#btn-submit,
+#btn-cancel {
+    flex: 0 0 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: grey;
+    margin: 40px 20px;
+    padding: 10px;
+    border-style: none;
+}
+
+
+
+/*Styles für Ausgabeliste*/
+/*
+#btn-neue-notiz {
+    margin-bottom: 20px;
+}
+
+#mode-switcher {
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    margin: 20px;
+    padding: 10px;
+    color: red;
+    border-radius: 50px;
+}
+*/
+
+.sortierung {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* Ausblenden-Style für Erledigt-Filterung*/
+.completed {
+    display: none;
+}
+
+#lbl-chb-erledigt {
+    border: 1px solid darkslategray;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, ;
+    font-size: 0.7em;}
+
+#lbl-chb-erledigt[checked] {
+    font-size: smaller;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 25% 40% 20% 15%;
+    grid-column-gap: 4px;
+   /*grid-template-rows: was muss ich hier eingeben? auf dem viewport sollen immer drei Notizen angezeigt werden. die restlichen kann man durch scrollen anschauen.*/
+    grid-row-gap: 10px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/*description*/
+article textarea {
+    grid-column: 2 / span 2;
+}
+
+/* Button, mit dem man einen Notizeintrag editieren kann */
+.edit-button {
+    grid-column-start: 4;
+    grid-row: 1 / span 2;
+    border-radius: 5px;
+    border: 1px black solid;
+}
+
+
+
