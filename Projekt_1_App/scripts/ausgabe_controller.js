@@ -2,7 +2,9 @@
 // WAS BRAUCHTS ?
 
 // "Redirect" zum Eingabeformular auf Button "Neue Notiz"
-const noteform = '/single-note.html';
+const eingabeurl = "./single-note.html";
+
+
 // Neue Notiz erstellen
 
 const goToSingleNote = document
@@ -53,7 +55,7 @@ function templateAusfuellen(note) {
        <p class="duedate">${note.duedate}</p>
        <h3 class="ausgabe-titel"> ${note.title}</h3>           
        <p class="importance">${note.importance} </p>
-       <button type="button" id="${'btn-edit_' + note.id}" class="edit-button">Bearbeiten</button>
+       <button type="button" id="${'btn-edit_' + note.id}" class="edit-button" onclick="editNote(${note.id})">Bearbeiten</button>
        <label for="${'check_notiz_' + note.id}"><input type="checkbox" id="${'check_notiz_' + note.id}" ${checkboxChecked(note.completed)}>
        Erledigt</label>
        <textarea id="ausgabe-description">${note.notiz} </textarea> 
@@ -75,6 +77,17 @@ function filterNotes() {
   } else {
     document.querySelector('.completed').style.display ='initial';
   }
+}
+
+
+// bearbeiten-Button =================================================
+
+
+// richtige Notiz aufrufen aus dem Storage anhand timestamp Id
+function editNote(id) {
+  sessionStorage.setItem('editid', id);
+  location.href = eingabeurl;
+  //console.log('edit url');
 }
 
 

@@ -1,4 +1,9 @@
 
+  // Seitenwechsel Variable ================
+  const ausgabeurl = "./note-list.html";
+
+
+
 // STYLE SELECTOR ===================================================
 function styleAuslesen() {
   if (localStorage.getItem('style') === 'dark') {
@@ -21,20 +26,21 @@ const formSend = document
 
 // Eingabe abbrechen ===================================================
 const btnCancel = document
-  .getElementById('#btn-cancel')
+  .getElementById('btn-cancel')
   .addEventListener('click', event => {
     event.preventDefault();
     // alle Felder leeren
     resetForm();
+    //console.log('felder geleert');
   }
   )
 
-  // Alle Formularfelder leeren ========================================
+  // Alle Formularfelder leeren und Seitenwechsel von Eingabeformular auf Notizenliste========================================
   function resetForm() {
-    document.getElementsByTagName("form").reset();
+    document.getElementById('form').reset();
+    location.href = ausgabeurl;
   }
 
-  // Seitenwechsel von Eingabeformular auf Notizenliste ================
 
 
 // Initialisierung =====================================================
