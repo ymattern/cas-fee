@@ -29,7 +29,6 @@ const btnCancel = document
   .getElementById('btn-cancel')
   .addEventListener('click', event => {
     event.preventDefault();
-    // alle Felder leeren
     resetForm();
     //console.log('felder geleert');
   }

@@ -23,17 +23,17 @@
     </header>
     <!-- Sortierung nach Kategorien-->
     <nav class="sortierung">
-        <input type="radio" id="btn-sort-createdate" onclick="sortArticles('id')" name="sortierung">
-            <label for="btn-sort-createdate">Erstelldatum</label>
+        <input type="radio" name="sortierung" id="btn-sort-createdate" class="nav-button">
+            <label for="btn-sort-createdate" class="lbl-nav-button">Erstelldatum</label>
         
-        <input type="radio" id="btn-sort-duedate" onclick="sortArticles('dueDate')" name="sortierung">
-        <label for="btn-sort-duedate">Fälligkeitsdatum</label>
+        <input type="radio" name="sortierung" id="btn-sort-duedate" class="nav-button">
+        <label for="btn-sort-duedate" class="lbl-nav-button">Fälligkeitsdatum</label>
 
-        <input type="radio" id="btn-sort-importance" onclick="sortArticles('importance')"name="sortierung" value="importance">
-        <label for="btn-sort-importance">Wichtigkeit</label>
+        <input type="radio" name="sortierung" id="btn-sort-importance" class="nav-button">
+        <label for="btn-sort-importance" class="lbl-nav-button">Wichtigkeit</label>
         
-        <input type="checkbox" id="chb-erledigt" name="filter" onchange="filterNotes()">
-        <label id="lbl-chb-erledigt" for="chb-erledigt">inkl. Abgeschlossene</label>
+        <input type="checkbox" id="chb-erledigt" class="nav-button" name="filter">
+        <label id="lbl-chb-erledigt" for="chb-erledigt" class="lbl-nav-button">inkl. Abgeschlossene</label>
     </nav>
 
     <main>
@@ -78,36 +78,6 @@
      
      
     </main>
-
-    <script>
-        const articlecontainer = document.querySelector('main');
-        let articles = Array.from(articlecontainer.children);
-    
-        function sortArticles(feldtyp){
-           let sortedarticles = [];
-           if (feldtyp == 'id') {
-               console.log('sortiert nach Erstelldatum (generiert ID)')
-               //sortiert das Array articles nach den data-ids
-               sortedarticles = articles.sort((a1, a2) => a2.dataset.id - a1.dataset.id);
-           } else if (feldtyp == 'dueDate') {
-               console.log('sortiert nach Fälligkeitsdatum');
-               // sortiert das Array articles nach data-duedate (absteigend)
-               sortedarticles = articles.sort((a1, a2) => a2.dataset.dueDate - a1.dataset.dueDate);
-           } else if (feldtyp == 'importance') {
-                console.log('sortiert nach Wichtigkeit');
-                //sortiert das Array articles nach data-importance (absteigend)
-                sortedarticles = articles.sort((a1, a2) => a2.dataset.importance - a1.dataset.importance);
-           }
-
-           return sortedarticles.forEach((note) => articlecontainer.appendChild(note));
-        };
-
-    </script>
-
-
-
-
-
 
     <footer>
         <p>&copy; ym</p>

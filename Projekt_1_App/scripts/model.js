@@ -18,10 +18,7 @@ function checkboxChecked(check) {
 }
 
 
-// Filter "erledigte anzeigen/ausblenden"
-function filterCompleted(click) {
-    if(click === true) {return 'completed'} else {return ''};
-}
+
 
 
 // Neue Notiz zu Liste hinzufügen

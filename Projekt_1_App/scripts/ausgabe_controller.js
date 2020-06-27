@@ -38,20 +38,80 @@ function styleAuslesen() {
 //========================================================================
 
 
-// Daten ins Template schreiben
+// SORTIERUNG ============================================================
 
-function createNoteHtml() {
- const tempausgabe = notes.map(templateAusfuellen);
-// return notes.map(templateAusfuellen);
-// console.log(tempausgabe.join(''));
-const templateausgabe = tempausgabe.join('');
-return templateausgabe;
-     //  .join('');
-     // console.log(templausgabe);
+var sortierZustand = 'id';
+var filterZustand = 'true';
+
+function sortArticles(liste) {
+  const sortierteListe = []; 
+  
+  switch (sortierZustand) {
+    case ('id'): 
+      sortierteListe = liste.sort((a1, a2) => a2.dataset.id - a1.dataset.id);
+      break;
+  
+    case ('duedate'):
+      sortierteListe = liste.sort((a1, a2) => a2.dataset.duedate - a1.dataset.duedate);
+      break;
+
+    case ('importance'):
+      sortierteListe = liste.sort((a1, a2) => a2.dataset.importance - a1.dataset.importance);
+      break;
+    
+    default:
+      sortierteListe = liste;
+  }
+  filterArticles(sortierteListe); 
 }
+/*
+   return sortedarticles.forEach((note) => articlecontainer.appendChild(note));
+};
+*/
+
+
+// Nach Fälligkeitsdatum sortieren 
+const rbDuedate = document
+    .querySelector('#btn-sort-duedate')
+    .addEventListener('click', () => sortArticles('dueDate'));
+
+// Nach Erstellungsdatum sortieren
+const rbCreated = document
+    .querySelector('#btn-sort-createdate')
+    .addEventListener('click', () => sortArticles('id'));
+
+// Nach Wichtigkeit sortieren
+const rbImportance = document
+    .querySelector('#btn-sort-importance')
+    .addEventListener('click', () => sortArticles('importance'));
+
+// Filter inkl. Abgeschlossene
+const chbImportance = document
+    .querySelector('#chb-erledigt')
+    .addEventListener('change', () => filter());
+
+// =========================================================================
+
+// Notizen filtern ====================================================
+
+function filterArticles(liste) {
+  // hier fehlt noch die richtige Filterfunktion
+  renderHtml(liste);
+}
+
+
+// Daten ins Template schreiben =============================================
+
+function renderArray() {
+  const tempausgabe = notes.map(templateAusfuellen);
+  sortArticles(tempausgabe); 
+}
+
+
+
 function templateAusfuellen(note) {
   return `
-    <article data-id="${note.id}" data-duedate="${note.duedate}" data-importance="${note.importance}" class="${filterCompleted(note.completed)}">
+    <article data-id="${note.id}" data-duedate="${note.duedate}" data-importance="${note.importance}">
        <p class="duedate">${note.duedate}</p>
        <h3 class="ausgabe-titel"> ${note.title}</h3>           
        <p class="importance">${note.importance} </p>
@@ -59,27 +119,16 @@ function templateAusfuellen(note) {
        <label for="${'check_notiz_' + note.id}"><input type="checkbox" id="${'check_notiz_' + note.id}" ${checkboxChecked(note.completed)}>
        Erledigt</label>
        <textarea id="ausgabe-description">${note.notiz} </textarea> 
-
-       
     </article>`
   }
 
+
+
 // Daten in <main> einfüllen
-function renderNotes() {
-  document.querySelector('main').innerHTML = createNoteHtml();
+function renderHtml(sortierteGefilterteListe) {
+  const ausgabeListe = sortierteGefilterteListe.join('');
+  document.querySelector('main').innerHTML = ausgabeListe;
 }
-
-
-// Notizen filtern ====================================================
-function filterNotes() {
-  if (document.querySelector('#chb-erledigt').checked == false) {
-    document.querySelector('.completed').style.display ='none';
-  } else {
-    document.querySelector('.completed').style.display ='initial';
-  }
-}
-
-
 // bearbeiten-Button =================================================
 
 
@@ -95,11 +144,8 @@ function editNote(id) {
 // Initialisierung =====================================================
 function init() {
   styleAuslesen();
-  renderNotes();
+  renderArray();
 }
 
 
 init();
-//======================================================================
-
-
